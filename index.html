@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Crystal Collections</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="./assets/javascript/crystal.js"></script>
+    <!-- <nav class="navbar navbar-inverse"> -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" style="font-size:24px">Renjie Dai</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- main container -->
+    <div class="container-fluid text-center">
+        <div class="row content aboutme">
+
+            <div class="col-sm-7 col-md-8 text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Crystal Collector</h1>
+                        <div class="text-center">
+
+                            <!-- Here we have our button with id random-button -->
+                            <button id="start-button" class="btn btn-primary btn-lg">
+                                <h1><span class="glyphicon glyphicon-play"></span></h1>
+                            </button>
+                            <button id="random-button" class="btn btn-primary btn-lg">
+                                <h1><span class="glyphicon glyphicon-random"></span></h1>
+                            </button>
+                        </div>
+                        <h1 class="text-center" id="random-number"></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well" style="background-color: #080808">
+                            <div class="text-center">
+                                <!-- first diamond -->
+                                <div class="first-button">
+                                    <img src="./assets/images/image-1.jpg" alt="image-1" id="first-button" class="image"
+                                        style="width:100px;height:100px;">
+                                </div>
+                            </div>
+                            <!-- <h1 class="text-center" id="first-number"></h1> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well" style="background-color: #080808">
+                            <div class="text-center">
+
+                                <!-- Here we have our button with id random-button -->
+                                <img src="./assets/images/image-2.jpg" alt="image-2" id="second-button" class="image"
+                                    style="width:100px;height:100px;">
+
+                            </div>
+                            <!-- <h1 class="text-center" id="second-number"></h1>                                     -->
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well" style="background-color: #080808">
+                            <div class="text-center">
+
+                                <!-- Here we have our button with id random-button -->
+                                <img src="./assets/images/image-3.jpg" alt="image-3" id="third-button" class="image"
+                                    style="width:100px;height:100px;">
+                            </div>
+                            <!-- <h1 class="text-center" id="third-number"></h1> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well" style="background-color: #080808">
+                            <div class="text-center">
+
+                                <!-- Here we have our button with id random-button -->
+                                <img src="./assets/images/image-4.jpg" alt="image-4" id="fourth-button" class="image"
+                                    style="width:100px;height:100px;">
+
+                            </div>
+                            <!-- <h1 class="text-center" id="fourth-number"></h1>                                    -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Total</h1>
+                        <h2 class="text-center" id="total-number"></h2>
+                        <!-- <h3>Total: <span id="total-number" text-align="center"></span></h3></h3> -->
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- sidenav for connect me -->
+            <div class="col-sm-4 col-md-3 sidenav">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="well" style="background-color: #080808">
+                            <h3>Scores</h3>
+                            <hr>
+                            <h3>Wins: <span id="wins" text-align="left" color="green"></span></h3>
+                            <h3>Losses: <span id="losses" color="red"></span></h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="well" style="background-color: #080808">
+                            <!-- <h2><span id="result" text-color="blue"></span></h2> -->
+                            <p id="output" class="output"></p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                data-target="#collapseExample" aria-expanded="false"
+                                aria-controls="collapseExample">Instruction</button>
+                            <div class="collapse" id="collapseExample">
+                                <div class="well" id="instruction">
+                                    <p> * Click "START" button to display a random number.
+                                        * Each crystal also have a random points.
+                                        * clicks on a crystal, it will add points to the total score.
+                                        * The player wins if their total score matches the random number.
+                                        * The player loses if their score goes above the random number.
+                                        * Click Refresh button to continue the game.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1 col-md-1" background-color="#323333">
+                </div>
+
+            </div> <!-- row ending -->
+        </div> <!-- container ending -->
+
+
+</body>
+
+</html>
