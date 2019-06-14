@@ -1,154 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Crystal Collections</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <!-- Added link to the jQuery Library -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
-    <!-- Added a link to Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <title>CRYSTAL COLLECTOR GAME</title>
+  <!-- Bootstrap 4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <!-- Reset file -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <!-- Style Sheet -->
+  <link rel="stylesheet" type="text/css" href="assets/css/crystal.css">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 </head>
 
 <body>
-    <script src="./assets/javascript/crystal.js"></script>
-    <!-- <nav class="navbar navbar-inverse"> -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
 
-                <a class="navbar-brand" style="font-size:24px">Renjie Dai</a>
-            </div>
-
-        </div>
+<!-- Navbar -->
+<nav class="navbar fixed-top">
+  <nav class="nav">
+    <h1>CRYSTAL COLLECTOR GAME</h1>
+    <a class="nav-link"><img src="assets/images/prospect.jpg" alt="headshot" class="tools-nav"></a>
+    <nav class="nav">
+      <ol class="topScores">
+        <li id="gamesWon">
+          Games Won: 0
+        </li>
+        <li id="gamesLost">
+          Games Lost: 0
+        </li>
+        <li id="randomNumber">
+          Random Number: 
+        </li>
+        <li id="alertScore">
+          Current Score: 0
+        </li>
+        <li>
+          <form>
+            <input id="newGame" name="refresh" type="button" value="New Game" onClick="location.reload()">
+          </form>
+        </li>
+      </ol>
     </nav>
+  </nav>
+</nav>
 
-    <!-- main container -->
-    <div class="container-fluid text-center">
-        <div class="row content aboutme">
 
-            <div class="col-sm-7 col-md-8 text-center">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1>Crystal Collector</h1>
-                        <div class="text-center">
+  <div class="jumbotron" id="instructions">
+    <div class="row" class="list">
+      <ol class="game">
+        <li><a><img class="tools" src="assets/images/prospect.jpg" alt="tools">You will be given a random number at the start of the game.</a></li>
+        <li><a><img class="tools" src="assets/images/prospect.jpg" alt="tools">By clicking on a crystal, you will add a specific amount of points to your total score.</a></li>
+        <li><a><img class="tools" src="assets/images/prospect.jpg" alt="tools">You win the game by matching your total score to the random number. You lose if your total score goes above the random number.</a></li>
+        <li><a><img class="tools" src="assets/images/prospect.jpg" alt="tools">The value of each crystal is hidden from you until you click on it.</a></li>
+      </ol>
+      <div class="card" class="card-group">
+        <a href="#" id="crystal1"><img class="card-img-top" src="assets/images/crystal1.jpg" alt="Card image cap"></a>
+        <div class="card-block">
+          <h2 class="card-title">Crystal One</h2>
+          <h3 class="card-text" id="crystal1Value">Value Hidden</h3>
+        </div>
+      </div>
+        <div class="card">
+          <a href="#" id="crystal2"><img class="card-img-top" src="assets/images/crystal2.jpg" alt="Card image cap"></a>
+          <div class="card-block">
+            <h2 class="card-title">Crystal Two</h2>
+            <h3 class="card-text" id="crystal2Value">Value Hidden</h3>
+          </div>
+        </div>
+        <div class="card">
+          <a href="#" id="crystal3"><img class="card-img-top" src="assets/images/crystal4.jpg" alt="Card image cap"></a>
+          <div class="card-block">
+            <h2 class="card-title">Crystal Three</h2>
+            <h3 class="card-text" id="crystal3Value">Value Hidden</h3>
+          </div>
+        </div>
+        <div class="card">
+          <a href="#" id="crystal4"><img class="card-img-top" src="assets/images/crystal5.jpg" alt="Card image cap"></a>
+          <div class="card-block">
+            <h2 class="card-title">Crystal Four</h2>
+            <h3 class="card-text" id="crystal4Value">Value Hidden</h3>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                            <!-- Here we have our button with id random-button -->
-                            <button id="start-button" class="btn btn-primary btn-lg">
-                                <h1><span class="glyphicon glyphicon-play"></span></h1>
-                            </button>
-                            <button id="random-button" class="btn btn-primary btn-lg">
-                                <h1><span class="glyphicon glyphicon-random"></span></h1>
-                            </button>
-                        </div>
-                        <h1 class="text-center" id="random-number"></h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="well" style="background-color: #080808">
-                            <div class="text-center">
-                                <!-- first diamond -->
-                                <div class="first-button">
-                                    <img src="./assets/images/image-1.jpg" alt="image-1" id="first-button" class="image"
-                                        style="width:100px;height:100px;">
-                                </div>
-                            </div>
-                            <!-- <h1 class="text-center" id="first-number"></h1> -->
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="well" style="background-color: #080808">
-                            <div class="text-center">
 
-                                <!-- Here we have our button with id random-button -->
-                                <img src="./assets/images/image-2.jpg" alt="image-2" id="second-button" class="image"
-                                    style="width:100px;height:100px;">
 
-                            </div>
-                            <!-- <h1 class="text-center" id="second-number"></h1>                                     -->
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="well" style="background-color: #080808">
-                            <div class="text-center">
-
-                                <!-- Here we have our button with id random-button -->
-                                <img src="./assets/images/image-3.jpg" alt="image-3" id="third-button" class="image"
-                                    style="width:100px;height:100px;">
-                            </div>
-                            <!-- <h1 class="text-center" id="third-number"></h1> -->
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="well" style="background-color: #080808">
-                            <div class="text-center">
-
-                                <!-- Here we have our button with id random-button -->
-                                <img src="./assets/images/image-4.jpg" alt="image-4" id="fourth-button" class="image"
-                                    style="width:100px;height:100px;">
-
-                            </div>
-                            <!-- <h1 class="text-center" id="fourth-number"></h1>                                    -->
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1>Total</h1>
-                        <h2 class="text-center" id="total-number"></h2>
-                        <!-- <h3>Total: <span id="total-number" text-align="center"></span></h3></h3> -->
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- sidenav for connect me -->
-            <div class="col-sm-4 col-md-3 sidenav">
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="well" style="background-color: #080808">
-                            <h3>Scores</h3>
-                            <hr>
-                            <h3>Wins: <span id="wins" text-align="left" color="green"></span></h3>
-                            <h3>Losses: <span id="losses" color="red"></span></h3>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="well" style="background-color: #080808">
-                            <!-- <h2><span id="result" text-color="blue"></span></h2> -->
-                            <p id="output" class="output"></p>
-                            <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                data-target="#collapseExample" aria-expanded="false"
-                                aria-controls="collapseExample">Instruction</button>
-                            <div class="collapse" id="collapseExample">
-                                <div class="well" id="instruction">
-                                    <p> * Click "START" button to display a random number.
-                                        * Each crystal also have a random points.
-                                        * clicks on a crystal, it will add points to the total score.
-                                        * The player wins if their total score matches the random number.
-                                        * The player loses if their score goes above the random number.
-                                        * Click Refresh button to continue the game.
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-1 col-md-1" background-color="#323333">
-                </div>
-
-            </div> <!-- row ending -->
-        </div> <!-- container ending -->
-
+<!-- Footer -->
+<footer class="text-center">
+  <small>&copy; Crystal Collector Game</small>
+</footer>
+<script type="text/javascript" src="assets/javascript/crystal.js"></script>
 
 </body>
 
