@@ -1,212 +1,119 @@
- 
-//set up varialbe
-var randomNum = "";
-var firstNum = "";
-var secondNum = "";
-var thirdNum = "";
-var fourthNum = "";
-var totalSum = "";
-var wins = "";
-var losses = "";
-   messages = {
-              win: "You win! Play again",
-              lose: "You lost! Play again",
-              };
+//declare variables  
+  var randomNumber;
+  var wins = 0;
+  var losses = 0;
+  var score = 0;
+  var crystal1;
+  var crystal2;
+  var crystal3;
+  var crystal4;
 
+
+//once page is ready, generate a random number between 20 and 120 for the game and between 1 and 12 for each crystal
   $(document).ready(function() {
-
-    // Create random number between 19 to 120 on clicking start-button add content to the random-number div.
-    // ...
-    // debugger
-       $("#start-button").on("click", function(){
-       
-               var random = Math.floor(Math.random() * (120 - 19 + 1) ) + 19;  
-               randomNum = random;
-               console.log(totalSum);
-               totalSum = 0;
-                $("#output").text("");
-                $("#total-number").text(totalSum);
-                wins = 0;
-                losses = 0;
-               console.log("sum: "+ totalSum);
-               $(".image").bind("click");
-
-              
-              // start-button add content to the random-number div.
-               $("#random-number").text(randomNum);
-               $("#wins").text(wins);
-               $("#losses").text(losses);
-               // Create random number between 1 to 12 on clicking 
-              // start-button add content to the random-number div.
-               var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
-               secondNum = random;          
-               $("#second-number").text(secondNum);
-              // Create random number between 1 to 12 on clicking 
-              // start-button add content to the random-number div.
-               var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
-               firstNum = random;          
-               $("#first-number").text(firstNum);
-              // Create random number between 1 to 12 on clicking 
-              // start-button add content to the random-number div.
-               var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
-               thirdNum = random;          
-               $("#third-number").text(thirdNum);
-              // Create random number between 1 to 12 on clicking 
-              // start-button add content to the random-number div.
-               var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
-               fourthNum = random;          
-               $("#fourth-number").text(fourthNum);
-               return firstNum;
-               return secondNum;
-               return thirdNum;
-               return fourthNum;
-               return random;
-
-    });
-       //refresh the random number, don't refresh scores
-       $("#random-button").on("click", function(){
-       
-               var random = Math.floor(Math.random() * (120 - 19 + 1) ) + 19;  
-               randomNum = random;
-               console.log(totalSum);
-               totalSum = 0; 
-               $("#output").text("");
-                $("#total-number").text(totalSum);
-                console.log("sum: "+ totalSum);
-                //$(".image").bind("click");
+      var randomNumber = Math.floor((Math.random() * 121) + 19);
+      $("#randomNumber").html("Random Number: " + randomNumber);
+      var crystal1 = Math.floor((Math.random() * 13) + 1);
+      var crystal2 = Math.floor((Math.random() * 12) + 1);
+      var crystal3 = Math.floor((Math.random() * 12) + 1);
+      var crystal4 = Math.floor((Math.random() * 12) + 1); 
+      
+      //display crystal value and add value to total score
+      $("#crystal1").on("click", function() {
+        $("#crystal1Value").html("Value: " + crystal1);
+        //as long as the score is less than or equal to the game random number, update score
+        if (score <= randomNumber) {
+          var scoreUpdate = score += crystal1;
+            $("#alertScore").html("Current Score: "+ scoreUpdate);
+        }
+        //once the score equals the game random number, stop game and alert user he/she won
+        if (score == randomNumber) {
+            wins ++;
+            $("#gamesWon").html("Games Won: " + wins);
+            $("#gamesLost").html("Games Lost: " + losses);
+            alert("YOU WON!");
+        }
+         //once the score exceeds the game random number, stop game and alert user he/she lost
+        else if (score > randomNumber) {
+                losses ++;
+                $("#gamesWon").html("Games Won: " + wins);
+                $("#gamesLost").html("Games Lost: " + losses);
+                alert("SORRY, BUT YOU LOST!");
+        }
+      });
 
 
-               $("#random-number").text(randomNum);
-               $("#wins").text(wins);
-               $("#losses").text(losses);
-               
-               var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
-               secondNum = random;          
-               $("#second-number").text(secondNum);
+      //display crystal value and add value to total score
+      $("#crystal2").on("click", function() {
+        $("#crystal2Value").html("Value: " + crystal2);
+         //as long as the score is less than or equal to the game random number, update score
+         if (score <= randomNumber) {
+           var scoreUpdate = score += crystal2;
+            $("#alertScore").html("Current Score: "+ scoreUpdate);
+         }
+         //once the score equals the game random number, stop game and alert user he/she won
+         if (score == randomNumber) {
+            wins ++;
+            $("#gamesWon").html("Games Won: " + wins);
+            $("#gamesLost").html("Games Lost: " + losses);
+            alert("YOU WON!");
+          }
+       //once the score exceeds the game random number, stop game and alert user he/she lost
+        else if (score > randomNumber) {
+                losses ++;
+                $("#gamesWon").html("Games Won: " + wins);
+                $("#gamesLost").html("Games Lost: " + losses);
+                alert("SORRY, BUT YOU LOST!");
+          }
+      });
 
-               var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
-               firstNum = random;          
-               $("#first-number").text(firstNum);
 
-               var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
-               thirdNum = random;          
-               $("#third-number").text(thirdNum);
+      //display crystal value and add value to total score
+      $("#crystal3").on("click", function() {
+        $("#crystal3Value").html("Value: " + crystal3);
+        //as long as the score is less than or equal to the game random number, update score
+        if (score <= randomNumber) {
+            var scoreUpdate = score += crystal3;
+            $("#alertScore").html("Current Score: "+ scoreUpdate);
+        }
+        //once the score equals the game random number, stop game and alert user he/she won
+        if (score == randomNumber) {
+            wins ++;
+            $("#gamesWon").html("Games Won: " + wins);
+                $("#gamesLost").html("Games Lost: " + losses);
+            alert("YOU WON!");
+        }
+        //once the score exceeds the game random number, stop game and alert user he/she lost
+        else if (score > randomNumber) {
+                losses ++;
+                $("#gamesWon").html("Games Won: " + wins);
+                $("#gamesLost").html("Games Lost: " + losses);
+                alert("SORRY, BUT YOU LOST!");
+        }
+      });
 
-               var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
-               fourthNum = random;          
-               $("#fourth-number").text(fourthNum);
 
-               return firstNum;
-               return secondNum;
-               return thirdNum;
-               return fourthNum;
-               return random;
-
-    });      
-          //Add the all the crystal numbers based on image click        
-          $("#first-button").on("click", function(){
-              
-             
-                  firstNum += Number($(this).val());
-                  totalSum = Number(totalSum) + Number(firstNum);
-                  console.log(firstNum);
-                  console.log(totalSum);
-                  $("#total-number").text(totalSum);
-              console.log("random: "+ randomNum);
-              console.log("sum: "+ totalSum);
-            //if total sum is equal to random num - add win count and display win message
-           if (totalSum === randomNum) {
-              wins++
-              console.log("wins:" + wins);
-              $("#wins").text(wins);
-              output.innerHTML = messages.win;
-              output.classList.add('win');
-              alert("You win - Click on Refresh or Restart button");
-              
-            }
-            //if total sum is greater than random num - add lost count and display lost message
-            else if (totalSum > randomNum) {
-              losses++
-              console.log("loss:" + losses);
-              $("#losses").text(losses);
-              output.innerHTML = messages.lose;
-              output.classList.add('lose');
-              alert("You lost - Click on Refresh or Restart button");
-              } 
-              return totalSum;   
-           });
-
-           $("#second-button").on("click", function(){        
-                  secondNum += Number($(this).val());
-                  totalSum = Number(totalSum) + Number(secondNum);
-                  console.log(secondNum);
-                  console.log(totalSum);
-                  $("#total-number").text(totalSum);
-            if (totalSum === randomNum) {
-              wins++
-              console.log("wins:" + wins);
-              $("#wins").text(wins);
-              output.innerHTML = messages.win;
-              output.classList.add('win');
-              alert("You win - Click on Refresh or Restart button");
-            }
-            else if (totalSum > randomNum) {
-              losses++
-              console.log("loss:" + losses);
-              $("#losses").text(losses);
-              output.innerHTML = messages.lose;
-              output.classList.add('lose');
-              alert("You lost - Click on Refresh or Restart button");
-              } 
-              return totalSum;
-           });
-           $("#third-button").on("click", function(){
-                  thirdNum += Number($(this).val());
-                  totalSum = Number(totalSum) + Number(thirdNum);
-                  console.log(thirdNum);
-                  console.log(totalSum);
-                  $("#total-number").text(totalSum);
-              if (totalSum === randomNum) {
-                wins++
-                console.log("wins:" + wins);
-                $("#wins").text(wins);
-                output.innerHTML = messages.win;
-              output.classList.add('win');
-              alert("You win - Click on Refresh or Restart button");
-            }
-            else if (totalSum > randomNum) {
-                losses++
-                console.log("loss:" + losses);
-                $("#losses").text(losses);
-                output.innerHTML = messages.lose;
-              output.classList.add('lose');
-              alert("You lost - Click on Refresh or Restart button");
-                } 
-                return totalSum; 
-           });
-           $("#fourth-button").on("click", function(){
-                  fourthNum += Number($(this).val());
-                  totalSum = Number(totalSum) + Number(fourthNum);
-                  console.log(fourthNum);
-                  console.log(totalSum);
-                  $("#total-number").text(totalSum);
-              if (totalSum === randomNum) {
-              wins++
-              console.log("wins:" + wins);
-              $("#wins").text(wins);
-              output.innerHTML = messages.win;
-              output.classList.add('win');
-              alert("You win - Click on Refresh or Restart button");
-            }
-            else if (totalSum > randomNum) {
-              losses++
-              console.log("loss:" + losses);
-              $("#losses").text(losses);
-              output.innerHTML = messages.lose;
-              output.classList.add('lose');
-              alert("You lost - Click on Refresh or Restart button");
-              } 
-              return totalSum;
-           }); 
-           
-  });
+      //display crystal value and add value to total score
+      $("#crystal4").on("click", function() {
+        $("#crystal4Value").html("Value: " + crystal4);
+        //as long as the score is less than or equal to the game random number, update score
+        if (score <= randomNumber) {
+            var scoreUpdate = score += crystal4;
+            $("#alertScore").html("Current Score: "+ scoreUpdate);
+        }
+        //once the score equals the game random number, stop game and alert user he/she won
+        if (score == randomNumber) {
+            wins ++;
+            $("#gamesWon").html("Games Won: " + wins);
+                $("#gamesLost").html("Games Lost: " + losses);
+            alert("YOU WON!");
+        }
+        //once the score exceeds the game random number, stop game and alert user he/she lost
+        else if (score > randomNumber) {
+                losses ++;
+               $("#gamesWon").html("Games Won: " + wins);
+                $("#gamesLost").html("Games Lost: " + losses);
+                alert("SORRY, BUT YOU LOST!");
+        }
+      });
+ })
