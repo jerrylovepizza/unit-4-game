@@ -1,119 +1,100 @@
-$( document ).ready(function(){
-var randomnum=Math.floor(Math.random()*101+19)
-console.log(randomnum);
-// Selects a random number to be shown at the start of the game
-// Number should be should be between 19 - 120
-//
-$('#randomNumber').html(randomnum);
-console.log(randomnum);
-
-
-
-var playerScore= 0;
-var wins= 0;
+// create variables to track
+var wins = 0;
 var losses = 0;
-var endOfGame =false;
-var playerLoses=false;
-//  Decaring variables for tallies
-$('#wins').html(wins);
-$('#losses').html(losses);
+var goal = Math.floor(Math.random() * 500);
+var score = 0;
+var crystal1;
+var crystal2;
+var crystal3;
+var crystal4;
 
-//set  up click for Blue Crystal
-$('#blue').on ('click', function(){
-if (endOfGame == false)
-{
-var blue= Math.floor(Math.random()*11+1);
-playerScore = playerScore + blue;
-$('#playerScore').html(playerScore);
-checkScore();
-}
+// Create a function to start/reset the game
+    function reset(){
+        // create a new random number
+        goal = Math.floor(Math.random() * 500)
+        // update this on the page
+        $("#goal").text(goal);
+        // create new values for each crystal
+        crystal1 = Math.floor(Math.random() * 100);
+        crystal2 = Math.floor(Math.random() * 100);
+        crystal3 = Math.floor(Math.random() * 100);
+        crystal4 = Math.floor(Math.random() * 100);
 
+        console.log("crysal1: " + crystal1);
+        console.log("crysal2: " + crystal2);
+        console.log("crysal3: " + crystal3);
+        console.log("crysal4: " + crystal4);
+        // reset score to 0
+        score = 0;
+        // update score on the page
+        $("score").text(goal);
+    }
 
-})
+// Create a function to test win/lose
+    function test() {
+        if (score === goal) {
+            wins++;
+            $("#wins").text(wins);
+            $("#score").text("You Win!");
+            // call reset function
+            reset();
+        }
+        if (score > goal) {
+            losses++;
+            $("#losses").text(losses);
+            $("#score").text("You Suck!");
+            // call reset function
+            reset();
+        }
+    }
 
-//set up click for Green Crystal
+// The Game starts here with a start of a game reset function
+    reset();
 
-$('#green').on ('click', function(){
-if (endOfGame == false)
-{
-var green= Math.floor(Math.random()*11+1);
-playerScore = playerScore + green;
-$('#playerScore').html(playerScore);
-checkScore();
-}
+    // Create a click event for crystal 1
+        $("#crystal-1").on("click", function (){
+            // Grab the value of crystal that was clicked on
+            // console.log(crystal1);
+            // Add that to the player's score
+            $("#score").text(score + crystal1);
+            score += crystal1;
+            
+            // Call test function
+            test();
+        });
 
-})
+    // Create a click event for crystal 2
+    $("#crystal-2").on("click", function (){
+        // Grab the value of crystal that was clicked on
+        // console.log(crystal2);
+        // Add that to the player's score
+        $("#score").text(score + crystal2);
+        score += crystal2;
+        
+        // Call test function
+        test();
+    });
 
-// set up click for Red Crystal
-$('#pink').on ('click', function(){
-if (endOfGame == false)
-{
-var pink= Math.floor(Math.random()*11+1);
-playerScore = playerScore + pink;
-$('#playerScore').html(playerScore);
+    // Create a click event for crystal 3
+    $("#crystal-3").on("click", function (){
+        // Grab the value of crystal that was clicked on
+        // console.log(crystal3);
+        // Add that to the player's score
+        $("#score").text(score + crystal3);
+        score += crystal3;
+        
+        // Call test function
+        test();
+    });
 
-checkScore();
-}
-
-})
-
-//set up click for Yellow Crystal
-$('#white').on ('click', function(){
-if (endOfGame == false)
-{
-var white= Math.floor(Math.random()*11+1);
-playerScore= playerScore + white;
-$('#playerScore').html(playerScore);
-
-checkScore();
-}
-})
-
-
-function checkScore(){
-if (playerScore == randomnum){
-endOfGame=true;
-wins++;
-$('#playerScore').html(playerScore);
-$('#wins').html(wins);
-alert("Game Over, You Win");
-
-}
-
-
-else if (playerScore > randomnum){
-Playerloses = true;
-endOfGame = true;
-losses++;
-$('#losses').html(losses);
-alert("Game Over, You lose");
-
-};
-
-if (endOfGame){
-$('#wins').html( wins);
-$('#losses').html(losses);
-setTimeout(startgame,2500);
-}
-}
-
-
-// Restarting the game and initialising all variables to zero
-function startgame(){
-endOfGame = false;
-playLoses = false;
-playerScore = 0
-randomnum = Math.round(Math.random() * (120 - 19)) + 19;
-$('#randomNumber').text(randomnum);
-
-var red = Math.round(Math.random() * (12-1)) + 1;
-var blue = Math.round(Math.random() * (12-1)) + 1;
-var yellow= Math.round(Math.random() * (12-1)) + 1;
-var green= Math.round(Math.random() * (12-1)) + 1;
-
-$('#playerScore').html(playerScore);
-$('#randnum').html(randomnum);
-$('#wins').html(wins);
-$('#losses').html(losses);
-}
-});
+    // Create a click event for crystal 4
+    $("#crystal-4").on("click", function (){
+        // Grab the value of crystal that was clicked on
+        // console.log(crystal4);
+        // Add that to the player's score
+        $("#score").text(score + crystal4);
+        score += crystal4;
+        
+        // Call test function
+        test();
+    });
