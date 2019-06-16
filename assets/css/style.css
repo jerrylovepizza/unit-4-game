@@ -1,114 +1,80 @@
-* {
-	box-sizing: border-box;
-}
-
 body {
-	background: gray;
-}
-
-.container {
-	width: 1300px;
-}
-
-header {
-	
-	color: white;
-	border: 1px solid gray;
-	width: 100%;
-	margin: 0;
-	padding: 10px;
-	text-align: center;
-	font-family: 'Alex Brush', cursive;
-	font-size:20px;
-	
-}
-
-h3{
-font-family: 'Alex Brush', cursive;
-font-size:35px;	
-}
-
-#gameRules {
-	/*background: #00ffff;*/
-	background:#FF0080;
-	color: white;
-	width: 100%;
-	margin: 0;
-	padding: 50px;
-	text-align: center;
-	font-family: 'Alex Brush', cursive;
-	font-size: 35px;
-
-}
-
-#randomNum {
-	background: gray;
-	color: white;
-	width: 33%;
-	margin-top: 0;
-	padding: 0, 20px, 20px, 20px;
-	text-align: center;
-	font-family: 'Satisfy', cursive;
-	font-size: 25px;
-	float: left;
-	height: 90px;
-
-
-}
-
-#winsLosses {
-	background: gray;
-	color: white;
-	width: 33%;
-	margin-top: 0;
-	padding: 0, 20px, 20px, 20px;
-	text-align: center;
-	font-family: 'Satisfy', cursive;
-	font-size: 25px;
-	float: left;
-	line-height: 20px;
-	height: 90px;
-
-}
-
-#totalScore {
-	background: gray;
-	color: white;
-	width: 33%;
-	margin-top: 0;
-	padding: 0, 20px, 20px, 20px;
-	text-align: center;
-	font-family: 'Satisfy', cursive;
-	font-size: 25px;
-	float: left;
-	height: 120px;
-	
-}
-
-.crystals {
-	background: gray;
-	color: white;
-    margin: 0;
-	text-align: center;
-	float: left;
-	padding-left: 400px;
-	bottom: 0;
-	
-	}
-	
-
-
-img {
-	height: 125px;
-	width: 175px;
-	margin: 0 auto;
-	padding-right: 50px;
-	display:inline-block;
-	
-	
-}
-	
-
-
-
-	
+    background-image: url("../images/background_img.jpg");
+    background-repeat: repeat;
+  }
+  
+  #screen {
+    overflow: auto;
+  }
+  
+  #screen div {
+    float: left;
+  }
+  
+  #title {
+    width: 250px;
+    padding: 4px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: chocolate;
+  }
+  
+  #rules-area {
+    width: 400px;
+    height: 400px;
+    padding: 4px;
+    margin-bottom: 10px;
+    color: green;
+    background-color: bisque;
+  }
+  
+  #random-area {
+    width: 200px;
+    height: 100px;
+    padding: 4px;
+    font-size: 3vw;
+    color: purple;
+    background-color: mediumseagreen;
+  }
+  
+  #score-area {
+    width: 210px;
+    height: 100px;
+    padding: 4px;
+    color: ghostwhite;
+    background-color: darkcyan;
+  }
+  
+  #score-title {
+    width: 210px;
+    padding: 4px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: darkcyan;
+  }
+  
+  .crystals-button {
+    display: inline;
+  }
+  
+  .crystal-img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    background-color: white;
+    border: solid;
+    border-color: lightblue;
+  }
+  
+  #score-number {
+    font-size: 3vw;
+  }
+  
+  #win-area {
+    height: 100px;
+    padding: 4px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: aqua;
+  }
+  
