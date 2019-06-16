@@ -2,71 +2,82 @@
 <html lang="en-us">
 
 <head>
-    <title>Crystal Collector</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script type="text/javascript" src="logic.js"></script>
+    <title>The Crystals Collector Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <h1>Crystal Collector</h1>
 
-
-    </header>
-
-    <p id="gameRules">
-
-        You will be given a random number at the start of the game.
-        </br>
-        There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total
-        score.
-        </br>
-        You win the game by matching your total score to the random number. You lose the game if your total score goes
-        higher than the random number.
-        </br>
-        The value of each crystal is hidden from you until you click on it.
-        </br>
-        Each time the game starts, the value of each crystal will change and the random number will change.
-
-    </p>
-
-
-
-
-    <div id="winsLosses">
-        <h3><span id="message"></span></h3>
-        <h3>Wins:<span id="wins"></span></h3>
-        <h3>Losses:<span id="losses"></span></h3>
-        </h2>
-    </div>
-    <div id="randomNum">
-        <h3>Match this number
-            <span id="randomNumber"></span>
-        </h3>
+    <div class="jumbotron jumbotron-fluid bg-dark text-white">
+        <div class="container">
+            <h1 class="display-4"><b>CrystalsCollector!</b></h1><br>
+            <div class="container">
+                <p>You will be given a random number at the start of the game.</p>
+                <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to
+                    your total score.</p>
+                <p>You win the game by matching your total score to a random number, you lose the game if your total
+                    score goes above the random number.</p>
+                <p>The value of each crystal is hidden from you until you click on it.</p>
+                <p>Each time when the game starts, the game will change the values of each crystal.</p>
+            </div>
+        </div>
     </div>
 
-    <div id="totalScore">
-        <h3>Your Score:
-            <span id="playerScore"></span>
-        </h3>
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 bg-danger text-white p-4">
+                <h2>Goal:</h2>
+                <h2 id="goal">0</h2>
+            </div>
 
+            <div class="col-md-4 bg-primary p-4">
 
+                <h2>Wins: <span id="wins">0</span></h2>
+                <h2>Losses: <span id="losses">0</span></h2>
+            </div>
 
+            <div class="col-md-4 bg-success text-white p-4">
+                <h2>Your total score is:</h2>
+                <h2 id="score">0</h2>
+            </div>
+        </div>
 
+        <div class="row mt-5 mb-5">
+            <div class="col-md-2"></div>
 
-    <div class="crystals">
+            <div class="col-md-2">
+                <button id="crystal-1" class="crystals" value="1"><img src="assets/images/blue.png" height="80px"
+                        alt="blue crystal" /></button>
+            </div>
 
-        <img src="images/pink-gem.png" id="pink">
-        <img src="images/sapphire-gem.png" id="blue">
-        <img src="images/black-and-white-gem.png" id="white">
-        <img src="images/emerald-gem.png" id="green">
-    </div>
+            <div class="col-md-2">
+                <button id="crystal-2" class="crystals" value="2"><img src="assets/images/green.png"height="80px"
+                        alt="green crystal" /></button>
+            </div>
+
+            <div class="col-md-2">
+                <button id="crystal-3" class="crystals" value="3"><img src="assets/images/white.png"height="80px"
+                        alt="white crystal" /></button>
+            </div>
+
+            <div class="col-md-2">
+                <button id="crystal-4" class="crystals" value="4"><img src="assets/images/red.png"height="80px"
+                        alt="red crystal" /></button>
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
+
+        <div class="row">
+            </diov>
+        </div>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 
 </html>
